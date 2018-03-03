@@ -1,19 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TodoList</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.4em;
+      background: #f5f5f5;
+      color: #4d4d4d;
+      min-width: 230px;
+      max-width: 550px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 300;
+    }
+
+    h1 {
+      font-size: 100px;
+      font-weight: 100;
+      text-align: center;
+      color: rgba(175, 47, 47, 0.15);
+      -webkit-text-rendering: optimizeLegibility;
+      -moz-text-rendering: optimizeLegibility;
+      text-rendering: optimizeLegibility;
+    }
+
+    ul {
+      background: #fff;
+      margin:70px 0 40px;
+      padding: 0;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1);
+    }
+
+    li {
+      list-style:none;
+      font-size: 24px;
+      line-height: 60px;
+      border-bottom:1px solid #ededed;
+      padding-left: 30px;
+    }
+    ul li:last-child {
+      border-bottom: none;
+    }
+
+    li .name{
+      text-decoration: none;
+      color:#333;
+    }
+    li .github,li .gitee{
+      text-decoration: none;
+      color:#333;
+      font-size: 14px;
+      line-height: 60px;
+      margin-right:25px;
+      float: right;
+    }
+
+    footer {
+      margin: 65px auto 0;
+      color: #bfbfbf;
+      font-size: 10px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+    footer a{
+      text-decoration: none;
+      color:#bfbfbf;
+    }
+
+  </style>
 </head>
+
 <body>
+  <h1>todolist</h1>
   <ul>
-    <li><a href="./vue-todolist/index.html">vue-todolist</a></li>
-    <li><a href="./vue-vuex-todolist/index.html">vue-vuex-todolist</a></li>
-    <li><a href="./react-todolist/build/index.html">react-todolist</a></li>
-    <li><a href="./react-redux-todolist/build/index.html">react-redux-todolist</a></li>
-    <li><a href="./react-mobx-todolist/build/index.html">react-mobx-todolist</a></li>
-    <li><a href="./jquery-arttemplate-todolist/index.html">jquery-arttemplate-todolist</a></li>
+    <li>
+      <a class="name" href="./vue-todolist/index.html">vue-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/vue-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/vue-todolist"> GitHub </a>
+    </li>
+    <li>
+      <a class="name" href="./vue-vuex-todolist/index.html">vue-vuex-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/vue-vuex-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/vue-vuex-todolist"> GitHub </a>
+    </li>
+    <li>
+      <a class="name" href="./react-todolist/build/index.html">react-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/react-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/react-todolist"> GitHub </a>
+    </li>
+    <li>
+      <a class="name" href="./react-redux-todolist/build/index.html">react-redux-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/react-redux-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/react-redux-todolist"> GitHub </a>
+    </li>
+    <li>
+      <a class="name" href="./react-mobx-todolist/build/index.html">react-mobx-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/react-mobx-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/react-mobx-todolist"> GitHub </a>
+    </li>
+    <li>
+      <a class="name" href="./jquery-arttemplate-todolist/index.html">jquery-arttemplate-todolist</a>
+      <a class="gitee" href="https://gitee.com/he-zhiyong/todolist/tree/master/jquery-arttemplate-todolist"> Gitee </a>
+      <a class="github" href="https://github.com/he-zhiyong/todolist/tree/master/jquery-arttemplate-todolist"> GitHub </a>
+    </li>
   </ul>
+  <footer>
+    <p>Click to preview a todolist demo </p>
+    <p>Created by Hezhiyong</p>
+    <p>Source:
+      <a href="https://github.com/he-zhiyong/todolist"> GitHub </a>or
+      <a href="https://gitee.com/he-zhiyong/todolist"> Gitee </a>
+    </p>
+  </footer>
 </body>
+
 </html>

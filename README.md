@@ -4,8 +4,8 @@ Some demo implementation of todolist and related dev-tools integration.
 
 ## TodoList demo preview
 
-[GitHub website preview](https://github.com/he-zhiyong/todolist)  or
-[Gitee website preview](https://gitee.com/he-zhiyong/todolist)
+[GitHub website preview](https://he-zhiyong.github.io/todolist)  or
+[Gitee website preview](http://he-zhiyong.gitee.io/todolist)
 
 ## Build Setup
 

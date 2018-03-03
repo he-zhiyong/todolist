@@ -1,0 +1,10 @@
+{{each visibleTodos todo}}
+  <li class="todo {{todo.completed ? 'completed' : ''}} {{todoBeingEdited === todo ? 'editing' : ''}}">
+    <div class="view">
+      <input class="toggle" type="checkbox" todoId="{{todo.id}}" {{todo.completed ? 'checked' : ''}}>
+      <label todoId="{{todo.id}}">{{todo.text}}</label>
+      <button class="destroy" todoId="{{todo.id}}"></button>
+    </div>
+    <input class="edit" type="text" todoId="{{todo.id}}" name="{{todo.text}}" {{todoBeingEdited === todo ? 'autofocus' : ''}}>
+  </li>
+{{/each}}

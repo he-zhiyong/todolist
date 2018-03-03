@@ -1,0 +1,16 @@
+<section id="todoapp" class="todoapp">
+  <header class="header">
+    <h1>todolist</h1>
+    {{include './AddTodo.art'}}
+  </header>
+  {{include './TodoList.art'}}
+  {{include './FilterTodo.art'}}
+</section>
+<footer class="info">
+  <p>Double-click to edit a todo</p>
+  <p>TodoList based on jQuery and art-template</p>
+  <p>Source: 
+    <a href="https://github.com/he-zhiyong/todolist/tree/master/jquery-arttemplate-todolist"> GitHub </a>or
+    <a href="https://gitee.com/he-zhiyong/todolist/tree/master/jquery-arttemplate-todolist"> Gitee </a>
+  </p>
+</footer>

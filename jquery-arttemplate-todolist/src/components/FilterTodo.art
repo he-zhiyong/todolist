@@ -1,0 +1,13 @@
+<footer class="footer">
+  <span class="todo-count">
+    <strong>{{todos | activeTodoCount todos}}</strong> {{todos | activeTodoWord todos }} left
+  </span>
+  <ul class="filters">
+    <li><a name="all" class="{{visibilityFilter == 'all'? 'selected':''}}">All</a></li>
+    <li><a name="active" class="{{visibilityFilter == 'active'? 'selected':''}}">Active</a></li>
+    <li><a name="completed" class="{{visibilityFilter == 'completed'? 'selected':''}}">Completed</a></li>
+  </ul>
+  <button class="clear-completed">
+    Clear completed
+  </button> 
+</footer>

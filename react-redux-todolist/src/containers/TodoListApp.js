@@ -62,7 +62,7 @@ class TodoListApp extends Component {
           <p>TodoList based on react and redux,Debug with redux-devtools</p>
           <p>Source: 
             <a href="https://github.com/he-zhiyong/todolist/tree/master/react-redux-todolist"> GitHub </a>or
-            <a href="https://gitee.com/he-zhiyong/todo_list/tree/master/react-redux-todolist"> Gitee</a>
+            <a href="https://gitee.com/he-zhiyong/todolist/tree/master/react-redux-todolist"> Gitee</a>
           </p>
         </footer>
       </div>

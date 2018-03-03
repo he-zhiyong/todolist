@@ -1,6 +1,6 @@
 # jquery-todolist
 
-> A todolist based on jQuery
+> A todolist based on jQuery and art-template
 
 ## Build Setup
 

@@ -1,17 +1,20 @@
 <section class="todoapp">
   <header class="header">
     <h1>todolist</h1>
-    <add-todo ></add-todo>
+    <add-todo (onAddTodo)="addTodo($event)"></add-todo>
   </header>
   <todo-list
     [todos]="todos"
-    [visibilityFilter]="visibilityFilter"
+    [visibleTodos]="visibleTodos"
     [todoBeingEdited]="todoBeingEdited"
+    (onDestroyTodo)="destroyTodo($event)"
   >
   </todo-list>
   <filter-todo
-    [visibilityFilter]="visibilityFilter"
     [activeTodoCount]="activeTodoCount"
+    [completedTodoCount]="completedTodoCount"
+    [visibilityFilter]="visibilityFilter"
+    (onFilterChange)="setVisibilityFilter($event)"
   ></filter-todo>
 </section>
 <footer class="info">

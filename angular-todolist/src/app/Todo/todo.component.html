@@ -3,9 +3,12 @@
   [class.editing]="todo === todoBeingEdited"
 >
   <div class="view">
-    <input class="toggle" type="checkbox" [(ngModel)]="todo.completed">
+    <input class="toggle" type="checkbox"
+      [(ngModel)]="todo.completed"
+      (click)="handleToggleTodo"
+    >
     <label>{{todo.text}}</label>
-    <button class="destroy"></button>
+    <button class="destroy" (click)="handleDestroyTodo(todo)"></button>
   </div>
   <input class="edit" type="text">
 </li>

@@ -1,10 +1,11 @@
-<section class="main">
+<section class="main" *ngIf="todos.length">
   <input id="toggleAll" class="toggle-all" type="checkbox" >
   <label for="toggleAll"></label>
   <ul class="todo-list">
-    <todo *ngFor="let todo of todos"
+    <todo *ngFor="let todo of visibleTodos"
       [todo] = todo
       [todoBeingEdited] = todoBeingEdited
+      (onDestroyTodo)="handleDestroyTodo($event)"
     >
     </todo>
   </ul>

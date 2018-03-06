@@ -1,13 +1,17 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'filter-todo',
   templateUrl: './filtertodo.component.html'
 })
-export class FilterTodoComponent implements OnInit {
-  @Input() visibilityFilter:string;
-  @Input() activeTodoCount:number;
+export class FilterTodoComponent{
+  @Input() visibilityFilter: string;
+  @Input() activeTodoCount: number;
+  @Input() completedTodoCount: number;
+  @Output() onFilterChange = new EventEmitter();
   constructor() { }
 
-  ngOnInit() { }
+  handleFilterChange(filterName){
+    this.onFilterChange.emit(filterName);
+  }
 }

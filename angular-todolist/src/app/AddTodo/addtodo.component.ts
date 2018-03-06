@@ -1,23 +1,20 @@
-import { Component, OnInit, Output ,NgModule} from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Output , NgModule, EventEmitter} from '@angular/core';
+
+const ENTER_KEY = 13;
 
 @Component({
   selector: 'add-todo',
   templateUrl: './addtodo.component.html'
 })
-export class AddTodoComponent implements OnInit {
-  @Output() private onAddTodo = new EventEmitter();
-  newTodoText:string;
-  constructor() { }
+export class AddTodoComponent{
+  @Output() onAddTodo = new EventEmitter();
+  private newTodoText:string;
 
-  ngOnInit() { }
-
-  handleAddTodoKeyDown(){
-    let newTodoText = this.newTodoText.trim()
-    console.log(newTodoText)
+  handleAddTodoKeyDown(value){
+    let newTodoText = value.trim();
     if(newTodoText){
-      this.onAddTodo.emit( newTodoText)
-      this.newTodoText = ''
+      this.onAddTodo.emit(newTodoText);
+      this.newTodoText = '';
     }
   }
 }

@@ -11,23 +11,72 @@ import { TodoService } from './todo.service';
 })
 export class AppComponent implements OnInit {
   todos: Array<Todo>;
+  visibleTodos: Array<Todo>;
   visibilityFilter: string;
   todoBeingEdited: object;
   activeTodoCount: number;
+  completedTodoCount: number;
   constructor(private todoService: TodoService) { }
 
-  initTodos(): void {
-    this.todoService.getTodos().then(todos => this.todos = todos);
-    this.visibilityFilter = 'all';
-    this.todoBeingEdited = null;
-    this.activeTodoCount = 2
+  getVisibleTodos(): Array<Todo>{
+    switch(this.visibilityFilter){
+      case 'all':
+        return this.todos
+      case 'active':
+        return this.todos.filter(todo => !todo.completed)
+      case 'completed':
+        return this.todos.filter(todo => todo.completed)
+      default:
+        return this.todos
+    }
+  }
+
+  getActiveTodoCount():number {
+    return this.todos.reduce(
+      (sum, todo) => sum + (todo.completed ? 0 : 1),
+      0
+    )
+  }
+
+  getCompletedTodoCount():number {
+    return this.todos.length - this.activeTodoCount
   }
 
   ngOnInit(): void {
-    this.initTodos();
+    this.todos = this.todoService.getTodos();
+    this.visibilityFilter = 'all';
+    this.visibleTodos = this.getVisibleTodos();
+    this.todoBeingEdited = null;
+    this.activeTodoCount = this.getActiveTodoCount();
+    this.completedTodoCount = this.getCompletedTodoCount();
+    window.onbeforeunload = () => {
+      this.todoService.saveTodos(this.todos)
+    }
   }
 
-  addTodo(e){
-    console.log(e)
+  addTodo(text: string): void{
+    this.todos.push({
+      text,
+      id:Date.now().toString(),
+      completed:false
+    })
+    this.visibleTodos = this.getVisibleTodos();
+    this.activeTodoCount = this.getActiveTodoCount();
+    this.completedTodoCount = this.getCompletedTodoCount();
   }
+
+  destroyTodo(id){
+    this.todos = this.todos.filter(
+      todo => todo.id !== id
+    )
+    this.visibleTodos = this.getVisibleTodos();
+    this.activeTodoCount = this.getActiveTodoCount();
+    this.completedTodoCount = this.getCompletedTodoCount();
+  }
+
+  setVisibilityFilter(filterName){
+    this.visibilityFilter = filterName;
+    this.visibleTodos = this.getVisibleTodos();
+  }
+
 }

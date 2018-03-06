@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 import { Todo } from '../todo';
 
@@ -6,25 +6,13 @@ import { Todo } from '../todo';
   selector: 'todo-list',
   templateUrl: './todolist.component.html'
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent{
   @Input() todos:Array<Todo>;
-  @Input() visibilityFilter:string;
+  @Input() visibleTodos:Array<Todo>;
   @Input() todoBeingEdited:any;
-  private visibleTodos:any;
-  constructor() { }
+  @Output() onDestroyTodo = new EventEmitter();
 
-  ngOnInit() {
-    this.visibleTodos = () => {
-      switch(this.visibilityFilter){
-        case 'all':
-          return this.todos
-        case 'active':
-          return this.todos.filter(todo => !todo.completed)
-        case 'completed':
-          return this.todos.filter(todo => todo.completed)
-        default:
-          return this.todos
-      }
-    }
+  handleDestroyTodo(id){
+    this.onDestroyTodo.emit(id)
   }
 }

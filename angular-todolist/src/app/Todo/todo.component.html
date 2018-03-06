@@ -1,6 +1,9 @@
-<li class="todo">
+<li class="todo"
+  [class.completed]="todo.completed === true"
+  [class.editing]="todo === todoBeingEdited"
+>
   <div class="view">
-    <input class="toggle" type="checkbox">
+    <input class="toggle" type="checkbox" [(ngModel)]="todo.completed">
     <label>{{todo.text}}</label>
     <button class="destroy"></button>
   </div>

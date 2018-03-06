@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
+import { TodoService } from './todo.service';
+
 import { AppComponent } from './app.component';
-import { TodoListAppComponent } from './TodoListApp/todolistapp.component';
 import { AddTodoComponent } from './AddTodo/addtodo.component';
 import { TodoComponent } from './Todo/todo.component';
 import { TodoListComponent } from './TodoList/todolist.component';
@@ -13,7 +14,6 @@ import { FilterTodoComponent } from './FilterTodo/filtertodo.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListAppComponent,
     AddTodoComponent,
     TodoListComponent,
     TodoComponent,
@@ -23,7 +23,7 @@ import { FilterTodoComponent } from './FilterTodo/filtertodo.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

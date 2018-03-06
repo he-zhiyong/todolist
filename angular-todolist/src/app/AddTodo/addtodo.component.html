@@ -3,5 +3,5 @@
   placeholder="What needs to be done?"
   autofocus autocomplete="off"
   [(ngModel)]="newTodoText"
-  (keydown)="handleAddTodoKeyDown"
+  (keyup)="handleAddTodoKeyUp($event)"
 >

@@ -12,7 +12,7 @@ export class AddTodoComponent implements OnInit {
 
   ngOnInit() { }
 
-  handleAddTodoKeyDown(){
+  handleAddTodoKeyUp(){
     let newTodoText = this.newTodoText.trim()
     console.log(newTodoText)
     if(newTodoText){

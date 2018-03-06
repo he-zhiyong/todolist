@@ -2,6 +2,10 @@
   <input id="toggleAll" class="toggle-all" type="checkbox" >
   <label for="toggleAll"></label>
   <ul class="todo-list">
-    <todo *ngFor="let todo of todos" [todo] = todo></todo>
+    <todo *ngFor="let todo of todos"
+      [todo] = todo
+      [todoBeingEdited] = todoBeingEdited
+    >
+    </todo>
   </ul>
 </section>

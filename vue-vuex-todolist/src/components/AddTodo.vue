@@ -4,7 +4,7 @@
     placeholder="What needs to be done?"
     autofocus autocomplete="off"
     v-model="newTodoText"
-    @keyup.enter="handleAddTodoKeyDown"
+    @keydown.enter="handleAddTodoKeyDown"
   />
 </template>
 

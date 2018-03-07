@@ -12,5 +12,11 @@
     >{{todo.text}}</label>
     <button class="destroy" (click)="handleDestroyTodo(todo)"></button>
   </div>
-  <input class="edit" type="text">
+  <input class="edit" type="text"
+    autofocus="todo === todoBeingEdited"
+    [(ngModel)]="editText"
+    (blur)="handleEndEditTodo(todo)"
+    (keydown.enter)="handleEndEditTodo(todo)"
+    (keydown.esc)="handleCancelEditTodo(todo)"
+  >
 </li>

@@ -1,9 +1,9 @@
 <section class="todoapp">
   <header class="header">
     <h1>todolist</h1>
-    <add-todo (onAddTodo)="addTodo($event)"></add-todo>
+    <app-add-todo (onAddTodo)="addTodo($event)"></app-add-todo>
   </header>
-  <todo-list
+  <app-todo-list
     [todos]="todos"
     [visibleTodos]="visibleTodos"
     [activeTodoCount]="activeTodoCount"
@@ -14,14 +14,15 @@
     (onEndEditTodo)="endEditTodo($event)"
     (onDestroyTodo)="destroyTodo($event)"
   >
-  </todo-list>
-  <filter-todo
+  </app-todo-list>
+  <app-filter-todo
     [activeTodoCount]="activeTodoCount"
     [completedTodoCount]="completedTodoCount"
     [visibilityFilter]="visibilityFilter"
     (onFilterChange)="setVisibilityFilter($event)"
     (onClearCompletedTodo)="clearCompletedTodo()"
-  ></filter-todo>
+  >
+  </app-filter-todo>
 </section>
 <footer class="info">
   <p>Double-click to edit a todo</p>

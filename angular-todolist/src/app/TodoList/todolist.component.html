@@ -5,14 +5,19 @@
   >
   <label for="toggleAll"></label>
   <ul class="todo-list">
-    <todo *ngFor="let todo of visibleTodos"
-      [todo] = todo
-      [todoBeingEdited] = todoBeingEdited
-      (onToggleTodo)="handleToggleTodo($event)"
-      (onStartEditTodo)="handleStartEditTodo($event)"
-      (onEndEditTodo)="handleEndEditTodo($event)"
-      (onDestroyTodo)="handleDestroyTodo($event)"
+    <li class="todo" *ngFor="let todo of visibleTodos"
+      [class.completed]="todo.completed === true"
+      [class.editing]="todo === todoBeingEdited"
     >
-    </todo>
+      <app-todo 
+        [todo] = todo
+        [todoBeingEdited] = todoBeingEdited
+        (onToggleTodo)="handleToggleTodo($event)"
+        (onStartEditTodo)="handleStartEditTodo($event)"
+        (onEndEditTodo)="handleEndEditTodo($event)"
+        (onDestroyTodo)="handleDestroyTodo($event)"
+      >
+      </app-todo>
+    </li>
   </ul>
 </section>

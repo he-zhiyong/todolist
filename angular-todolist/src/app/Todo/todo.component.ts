@@ -1,56 +1,53 @@
-import {Component, OnChanges, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, Renderer } from '@angular/core';
 
 import {Todo} from '../todo';
 @Component({
-  selector: 'todo',
+  selector: 'app-todo',
   templateUrl: './todo.component.html'
-})
-export class TodoComponent implements OnChanges{
-  @Input() todo:Todo;
-  @Input() todoBeingEdited:any;
+  })
+export class TodoComponent {
+  @Input() todo: Todo;
+  @Input() todoBeingEdited: any;
   @Output() onToggleTodo = new EventEmitter();
   @Output() onStartEditTodo = new EventEmitter();
   @Output() onEndEditTodo = new EventEmitter();
   @Output() onDestroyTodo = new EventEmitter();
-  editText:string;
+  public editText: string;
+  private editField: ElementRef;
 
-  ngOnChanges(prevProps){
-    if (!prevProps.todoBeingEdited.previousValue && this.todoBeingEdited) {
-
-			//var node = ReactDOM.findDOMNode(this.refs.editField);
-			//node.focus();
-			//node.setSelectionRange(node.value.length, node.value.length);
-		}
+  constructor(private el: ElementRef, private renderer: Renderer) {
+    this.editField = el.nativeElement.children;
   }
 
-  handleToggleTodo(todo){
-    this.onToggleTodo.emit(todo.id)
+  handleToggleTodo(todo): void {
+    this.onToggleTodo.emit(todo.id);
   }
 
-  handleStartEditTodo(todo){
+  handleStartEditTodo(todo): void {
     this.editText = todo.text;
-    this.onStartEditTodo.emit(todo)
+    this.onStartEditTodo.emit(todo);
+    this.editField[1].focus();
   }
 
-  handleEndEditTodo(todo){
+  handleEndEditTodo(todo): void {
     if (!this.todoBeingEdited) {
-      return
+      return;
     }
-    let text = this.editText.trim();
-    if(text){
+    const text: string = this.editText.trim();
+    if (text) {
       todo.text = text;
       this.onEndEditTodo.emit(todo);
-    }else{
+    } else {
       this.onDestroyTodo.emit(todo.id);
     }
   }
 
-  handleCancelEditTodo(todo){
+  handleCancelEditTodo(todo): void {
     this.onEndEditTodo.emit(todo);
   }
 
-  handleDestroyTodo(todo){
-    this.onDestroyTodo.emit(todo.id)
+  handleDestroyTodo(todo): void {
+    this.onDestroyTodo.emit(todo.id);
   }
 
 }

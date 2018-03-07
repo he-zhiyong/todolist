@@ -1,22 +1,16 @@
-<li class="todo"
-  [class.completed]="todo.completed === true"
-  [class.editing]="todo === todoBeingEdited"
->
-  <div class="view">
-    <input class="toggle" type="checkbox"
-      [ngModel]="todo.completed"
-      (ngModelChange)="handleToggleTodo(todo)"
-    >
-    <label
-      (dblclick)="handleStartEditTodo(todo)"
-    >{{todo.text}}</label>
-    <button class="destroy" (click)="handleDestroyTodo(todo)"></button>
-  </div>
-  <input class="edit" type="text"
-    autofocus="todo === todoBeingEdited"
-    [(ngModel)]="editText"
-    (blur)="handleEndEditTodo(todo)"
-    (keydown.enter)="handleEndEditTodo(todo)"
-    (keydown.esc)="handleCancelEditTodo(todo)"
+<div class="view">
+  <input class="toggle" type="checkbox"
+    [ngModel]="todo.completed"
+    (ngModelChange)="handleToggleTodo(todo)"
   >
-</li>
+  <label
+    (dblclick)="handleStartEditTodo(todo)"
+  >{{todo.text}}</label>
+  <button class="destroy" (click)="handleDestroyTodo(todo)"></button>
+</div>
+<input class="edit" type="text" #editField
+  [(ngModel)]="editText"
+  (blur)="handleEndEditTodo(todo)"
+  (keydown.enter)="handleEndEditTodo(todo)"
+  (keydown.esc)="handleCancelEditTodo(todo)"
+>

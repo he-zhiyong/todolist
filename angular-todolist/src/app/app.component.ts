@@ -42,23 +42,23 @@ export class AppComponent implements OnInit {
     return this.todos.length - this.activeTodoCount
   }
 
+  freshTodoList():void{
+    this.visibleTodos = this.getVisibleTodos();
+    this.activeTodoCount = this.getActiveTodoCount();
+    this.completedTodoCount = this.getCompletedTodoCount();
+  }
+
+
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
     this.visibilityFilter = 'all';
-    this.visibleTodos = this.getVisibleTodos();
     this.todoBeingEdited = null;
-    this.activeTodoCount = this.getActiveTodoCount();
-    this.completedTodoCount = this.getCompletedTodoCount();
+    this.freshTodoList();
     window.onbeforeunload = () => {
       this.todoService.saveTodos(this.todos)
     }
   }
 
-  freshTodoList(){
-    this.visibleTodos = this.getVisibleTodos();
-    this.activeTodoCount = this.getActiveTodoCount();
-    this.completedTodoCount = this.getCompletedTodoCount();
-  }
 
   addTodo(text: string): void{
     this.todos.push({

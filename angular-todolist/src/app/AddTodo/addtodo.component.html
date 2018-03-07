@@ -1,8 +1,7 @@
 <input
-  #newTodo
   class="new-todo"
   placeholder="What needs to be done?"
   autofocus autocomplete="off"
   [(ngModel)]="newTodoText"
-  (keydown.enter)="handleAddTodoKeyDown(newTodo.value)"
+  (keydown.enter)="handleAddTodoKeyDown()"
 >

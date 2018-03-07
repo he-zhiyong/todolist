@@ -12,11 +12,11 @@ export class TodoComponent implements OnChanges{
   @Output() onStartEditTodo = new EventEmitter();
   @Output() onEndEditTodo = new EventEmitter();
   @Output() onDestroyTodo = new EventEmitter();
-  private editText:string;
+  editText:string;
 
   ngOnChanges(prevProps){
     if (!prevProps.todoBeingEdited.previousValue && this.todoBeingEdited) {
-      
+
 			//var node = ReactDOM.findDOMNode(this.refs.editField);
 			//node.focus();
 			//node.setSelectionRange(node.value.length, node.value.length);

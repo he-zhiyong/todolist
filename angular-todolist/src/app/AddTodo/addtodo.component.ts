@@ -8,10 +8,10 @@ const ENTER_KEY = 13;
 })
 export class AddTodoComponent{
   @Output() onAddTodo = new EventEmitter();
-  private newTodoText:string;
+  newTodoText:string;
 
-  handleAddTodoKeyDown(value){
-    let newTodoText = value.trim();
+  handleAddTodoKeyDown(){
+    let newTodoText = this.newTodoText.trim();
     if(newTodoText){
       this.onAddTodo.emit(newTodoText);
       this.newTodoText = '';

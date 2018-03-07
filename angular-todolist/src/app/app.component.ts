@@ -54,24 +54,63 @@ export class AppComponent implements OnInit {
     }
   }
 
+  freshTodoList(){
+    this.visibleTodos = this.getVisibleTodos();
+    this.activeTodoCount = this.getActiveTodoCount();
+    this.completedTodoCount = this.getCompletedTodoCount();
+  }
+
   addTodo(text: string): void{
     this.todos.push({
       text,
       id:Date.now().toString(),
       completed:false
     })
-    this.visibleTodos = this.getVisibleTodos();
-    this.activeTodoCount = this.getActiveTodoCount();
-    this.completedTodoCount = this.getCompletedTodoCount();
+    this.freshTodoList();
+  }
+
+  toggleTodo(id){
+    this.todos.forEach(todo => {
+      if(todo.id === id){
+        todo.completed = !todo.completed;
+      }
+    })
+    this.freshTodoList();
+  }
+
+  toggleAllTodo(checked){
+    this.todos.forEach(
+      todo => todo.completed = checked
+    )
+    this.freshTodoList();
+  }
+
+  startEditTodo(todo){
+    this.todoBeingEdited = todo;
+  }
+
+  endEditTodo(newTodo){
+    this.todos.forEach(todo => {
+      if(todo.id === newTodo.id){
+        todo.text = newTodo.text;
+      }
+    })
+    this.todoBeingEdited = null;
+    this.freshTodoList();
   }
 
   destroyTodo(id){
     this.todos = this.todos.filter(
       todo => todo.id !== id
     )
-    this.visibleTodos = this.getVisibleTodos();
-    this.activeTodoCount = this.getActiveTodoCount();
-    this.completedTodoCount = this.getCompletedTodoCount();
+    this.freshTodoList();
+  }
+
+  clearCompletedTodo(){
+    this.todos = this.todos.filter(
+      todo => todo.completed === false
+    )
+    this.freshTodoList();
   }
 
   setVisibilityFilter(filterName){

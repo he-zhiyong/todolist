@@ -7,7 +7,9 @@
     <li><a (click)="handleFilterChange('active')" class="{{visibilityFilter == 'active'? 'selected':''}}">Active</a></li>
     <li><a (click)="handleFilterChange('completed')" class="{{visibilityFilter == 'completed'? 'selected':''}}">Completed</a></li>
   </ul>
-  <button class="clear-completed" *ngIf="completedTodoCount">
+  <button class="clear-completed" *ngIf="completedTodoCount"
+    (click)="handleClearCompletedTodo()"
+  >
     Clear completed
   </button>
 </footer>

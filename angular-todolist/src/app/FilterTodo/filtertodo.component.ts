@@ -9,9 +9,13 @@ export class FilterTodoComponent{
   @Input() activeTodoCount: number;
   @Input() completedTodoCount: number;
   @Output() onFilterChange = new EventEmitter();
-  constructor() { }
+  @Output() onClearCompletedTodo = new EventEmitter();
 
   handleFilterChange(filterName){
     this.onFilterChange.emit(filterName);
+  }
+
+  handleClearCompletedTodo(){
+    this.onClearCompletedTodo.emit();
   }
 }

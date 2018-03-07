@@ -6,7 +6,12 @@
   <todo-list
     [todos]="todos"
     [visibleTodos]="visibleTodos"
+    [activeTodoCount]="activeTodoCount"
     [todoBeingEdited]="todoBeingEdited"
+    (onToggleTodo)="toggleTodo($event)"
+    (onToggleAllTodo)="toggleAllTodo($event)"
+    (onStartEditTodo)="startEditTodo($event)"
+    (onEndEditTodo)="endEditTodo($event)"
     (onDestroyTodo)="destroyTodo($event)"
   >
   </todo-list>
@@ -15,6 +20,7 @@
     [completedTodoCount]="completedTodoCount"
     [visibilityFilter]="visibilityFilter"
     (onFilterChange)="setVisibilityFilter($event)"
+    (onClearCompletedTodo)="clearCompletedTodo($event)"
   ></filter-todo>
 </section>
 <footer class="info">

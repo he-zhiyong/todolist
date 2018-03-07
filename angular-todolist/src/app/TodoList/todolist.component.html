@@ -1,10 +1,16 @@
 <section class="main" *ngIf="todos.length">
-  <input id="toggleAll" class="toggle-all" type="checkbox" >
+  <input id="toggleAll" class="toggle-all" type="checkbox"
+    [ngModel]="activeTodoCount === 0"
+    (ngModelChange)="handleToggleAllTodo($event)"
+  >
   <label for="toggleAll"></label>
   <ul class="todo-list">
     <todo *ngFor="let todo of visibleTodos"
       [todo] = todo
       [todoBeingEdited] = todoBeingEdited
+      (onToggleTodo)="handleToggleTodo($event)"
+      (onStartEditTodo)="handleStartEditTodo($event)"
+      (onEndEditTodo)="handleEndEditTodo($event)"
       (onDestroyTodo)="handleDestroyTodo($event)"
     >
     </todo>

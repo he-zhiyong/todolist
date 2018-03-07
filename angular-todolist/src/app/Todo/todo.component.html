@@ -4,10 +4,12 @@
 >
   <div class="view">
     <input class="toggle" type="checkbox"
-      [(ngModel)]="todo.completed"
-      (click)="handleToggleTodo"
+      [ngModel]="todo.completed"
+      (ngModelChange)="handleToggleTodo(todo)"
     >
-    <label>{{todo.text}}</label>
+    <label
+      (dblclick)="handleStartEditTodo(todo)"
+    >{{todo.text}}</label>
     <button class="destroy" (click)="handleDestroyTodo(todo)"></button>
   </div>
   <input class="edit" type="text">

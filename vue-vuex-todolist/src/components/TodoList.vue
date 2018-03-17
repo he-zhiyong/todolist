@@ -14,7 +14,6 @@
 
 <script>
   import Todo from './Todo'
-  import store from '../store'
   import { mapState, mapMutations, mapGetters } from 'vuex'
 
   export default {
@@ -22,7 +21,6 @@
     components: {
       Todo
     },
-    store,
     methods:{
       ...mapMutations(['toggleAllTodo'])
     },

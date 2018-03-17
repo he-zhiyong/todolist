@@ -15,12 +15,9 @@
 </template>
 
 <script>
-  import store from '../store'
   import { mapState, mapMutations, mapGetters } from 'vuex'
-
   export default {
     name:'FilterTodo',
-    store,
     methods:{
       ...mapMutations(['setVisibilityFilter','clearCompletedTodo'])
     },

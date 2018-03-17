@@ -24,7 +24,6 @@
   import AddTodo from "./AddTodo"
   import TodoList from "./TodoList"
   import FilterTodo from "./FilterTodo"
-  import store from '../store'
   import { mapState, mapMutations } from 'vuex'
 
   export default {
@@ -34,7 +33,6 @@
       TodoList,
       FilterTodo
     },
-    store,
     methods:mapMutations(['saveTodosToLocalStorage']),
     computed:mapState(['todos']),
     created() {

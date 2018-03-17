@@ -16,6 +16,7 @@
 
 <script>
   import { mapState, mapMutations, mapGetters } from 'vuex'
+  
   export default {
     name:'FilterTodo',
     methods:{

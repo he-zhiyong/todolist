@@ -16,6 +16,7 @@
 
 <script>
   import { mapState, mapMutations } from 'vuex'
+
   export default {
     name:'Todo',
     props:{

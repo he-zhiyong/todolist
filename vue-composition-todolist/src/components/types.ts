@@ -1,3 +1,4 @@
+import { Ref } from '@vue/composition-api'
 
 export interface Todo {
   text: string
@@ -6,5 +7,10 @@ export interface Todo {
 }
 
 export interface State {
-
+  todos: Todo[]
+  visibilityFilter: 'all' | 'active' | 'completed'
+  todoBeingEdited: Todo | null
+  visibleTodos: Ref<Todo[]>
+  activeTodoCount: Ref<number>
+  completedTodoCount: Ref<number>
 }

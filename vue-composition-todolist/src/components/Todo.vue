@@ -16,11 +16,11 @@
 
 <script lang="ts">
 import { createComponent, ref, computed, SetupContext } from '@vue/composition-api'
-import { Todo } from './types'
+import { Todo, State } from './types'
 
 interface Props {
   todo: Todo
-  todoBeingEdited: Todo | null
+  todoBeingEdited: State['todoBeingEdited']
 }
 export default createComponent({
   name: 'Todo',

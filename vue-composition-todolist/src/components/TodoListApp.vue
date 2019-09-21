@@ -38,19 +38,11 @@
 <script lang="ts">
 import 'todomvc-app-css/index.css'
 import { createComponent, reactive, computed, Ref, toRefs } from '@vue/composition-api'
-import { Todo } from './types'
+import { Todo, State } from './types'
 import AddTodo from './AddTodo.vue'
 import TodoList from './TodoList.vue'
 import FilterTodo from './FilterTodo.vue'
 
-interface State {
-  todos: Todo[]
-  visibilityFilter: 'all' | 'active' | 'completed'
-  todoBeingEdited: Todo | null
-  visibleTodos: Ref<Todo[]>
-  activeTodoCount: Ref<number>
-  completedTodoCount: Ref<number>
-}
 export default createComponent({
   name: 'TodoListApp',
   components: {

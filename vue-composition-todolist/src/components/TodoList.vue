@@ -16,15 +16,15 @@
 </template>
 
 <script lang="ts">
-import { createComponent, computed, SetupContext } from '@vue/composition-api'
-import { Todo } from './types'
+import { createComponent, ref, computed, SetupContext } from '@vue/composition-api'
+import { Todo, State } from './types'
 import TodoComponent from './Todo.vue'
 
 interface Props {
   totalCount: number
-  visibleTodos: Todo[]
-  activeTodoCount: number
-  todoBeingEdited: Todo | null
+  visibleTodos: State['visibleTodos']
+  activeTodoCount: State['activeTodoCount']
+  todoBeingEdited: State['todoBeingEdited']
 }
 export default createComponent({
   name: 'TodoList',
@@ -53,7 +53,7 @@ export default createComponent({
     const { activeTodoCount } = props
     const toggleAllTodo = computed({
       get: function () {
-        return activeTodoCount === 0
+        return activeTodoCount === ref(0)
       },
       set: function (checked) {
         emit('onToggleAllTodo', checked)

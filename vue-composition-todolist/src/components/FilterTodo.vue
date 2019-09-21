@@ -16,13 +16,13 @@
 
 <script lang="ts">
 import { createComponent, ref, computed, SetupContext } from '@vue/composition-api'
-import { Todo } from './types'
+import { Todo, State } from './types'
 
 interface Props {
   totalCount: number
-  activeTodoCount: number
-  completedTodoCount: number
-  visibilityFilter: 'all' | 'active' | 'completed'
+  activeTodoCount: State['activeTodoCount']
+  completedTodoCount: State['completedTodoCount']
+  visibilityFilter: State['visibilityFilter']
 }
 export default createComponent({
   name: 'FilterTodo',

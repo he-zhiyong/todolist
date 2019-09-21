@@ -2,7 +2,7 @@ import { Ref } from '@vue/composition-api'
 
 export interface Todo {
   text: string
-  id: string,
+  id: string
   completed: boolean
 }
 
